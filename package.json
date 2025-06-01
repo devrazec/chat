@@ -10,6 +10,7 @@
     "preview": "vite build; vite preview --host",
     "prettierfix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "prettiercheck": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
