@@ -94,6 +94,30 @@ const contacts = [
     lastSeen: "4/25/2021",
     unreadCount: 0,
   },
+  {
+    id: 8,
+    name: "Herman Essertg",
+    role: "Co-ordinator",
+    avatar: "/placeholder.svg?height=40&width=40",
+    lastSeen: "4/25/2021",
+    unreadCount: 0,
+  },
+  {
+    id: 9,
+    name: "Wilhelmine Durrg",
+    role: "Monitor Evaluator",
+    avatar: "/placeholder.svg?height=40&width=40",
+    lastSeen: "4/25/2021",
+    unreadCount: 0,
+  },
+  {
+    id: 10,
+    name: "Agillulf Fuxg",
+    role: "Specialist",
+    avatar: "/placeholder.svg?height=40&width=40",
+    lastSeen: "4/25/2021",
+    unreadCount: 0,
+  },
 ]
 
 const messages = [
@@ -117,6 +141,54 @@ const messages = [
   },
   {
     id: 4,
+    text: "I need your minute, are you available?",
+    time: "11:23 AM",
+    isSent: false,
+  },
+  {
+    id: 5,
+    text: "Hi Good Morning!",
+    time: "11:23 AM",
+    isSent: true,
+  },
+  {
+    id: 6,
+    text: "Hey. Very Good morning. How are you?",
+    time: "11:23 AM",
+    isSent: false,
+  },
+  {
+    id: 7,
+    text: "Good. Thank you",
+    time: "11:23 AM",
+    isSent: true,
+  },
+  {
+    id: 8,
+    text: "I need your minute, are you available?",
+    time: "11:23 AM",
+    isSent: false,
+  },
+  {
+    id: 9,
+    text: "Hi Good Morning!",
+    time: "11:23 AM",
+    isSent: true,
+  },
+  {
+    id: 10,
+    text: "Hey. Very Good morning. How are you?",
+    time: "11:23 AM",
+    isSent: false,
+  },
+  {
+    id: 11,
+    text: "Good. Thank you",
+    time: "11:23 AM",
+    isSent: true,
+  },
+  {
+    id: 12,
     text: "I need your minute, are you available?",
     time: "11:23 AM",
     isSent: false,
@@ -150,42 +222,18 @@ export default function Chat() {
     <>
       <Box sx={{ display: "flex", height: "100vh", bgcolor: "#f5f5f5" }}>
         {/* Left Sidebar */}
-        <Box sx={{ width: 320, bgcolor: "white", borderRight: "1px solid #e0e0e0" }}>
+        <Box sx={{ width: 320, overflow: "auto", bgcolor: "white", borderRight: "1px solid #e0e0e0" }}>
           {/* User Profile Header */}
           <Box sx={{ p: 2, borderBottom: "1px solid #e0e0e0" }}>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <Avatar src="/placeholder.svg?height=40&width=40" sx={{ width: 40, height: 40 }} />
+                <div style={{ width: 40, height: 40 }}></div>
                 <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
-                  JWT User
+                  React Chat + AceBase
                 </Typography>
               </Box>
-              <IconButton size="small">
-                <ArrowDownIcon />
-              </IconButton>
+              
             </Box>
-          </Box>
-
-          {/* Search Bar */}
-          <Box sx={{ p: 2 }}>
-            <TextField
-              fullWidth
-              placeholder="Search Mail"
-              size="small"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon color="action" />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: 2,
-                  bgcolor: "#f8f9fa",
-                },
-              }}
-            />
           </Box>
 
           {/* Contacts List */}
@@ -265,53 +313,30 @@ export default function Chat() {
         {/* Main Chat Area */}
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
           {/* Chat Header */}
-          <Box sx={{ p: 2, bgcolor: "white", borderBottom: "1px solid #e0e0e0" }}>
+          <Box sx={{ p: 2,  bgcolor: "white", borderBottom: "1px solid #e0e0e0" }}>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <IconButton>
-                  <MenuIcon />
-                </IconButton>
-                <Badge
-                  overlap="circular"
-                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                  badgeContent={
-                    <Box
-                      sx={{
-                        width: 12,
-                        height: 12,
-                        borderRadius: "50%",
-                        bgcolor: "#4caf50",
-                        border: "2px solid white",
-                      }}
-                    />
-                  }
-                >
-                  <Avatar src={selectedContact.avatar} sx={{ width: 40, height: 40 }} />
-                </Badge>
-                <Box>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
-                    {selectedContact.name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Last seen {selectedContact.lastSeen}
-                  </Typography>
-                </Box>
+              {/* Search Bar */}
+              <Box sx={{}}>
+                <TextField
+                  fullWidth
+                  placeholder="Search Message"
+                  size="small"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon color="action" />
+                      </InputAdornment>
+                    ),
+                  }}
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 2,
+                      bgcolor: "#f8f9fa",
+                    },
+                  }}
+                />
               </Box>
 
-              <Box sx={{ display: "flex", gap: 1 }}>
-                <IconButton>
-                  <PhoneIcon />
-                </IconButton>
-                <IconButton>
-                  <VideoCallIcon />
-                </IconButton>
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-                <IconButton>
-                  <MoreVertIcon />
-                </IconButton>
-              </Box>
             </Box>
           </Box>
 
@@ -351,12 +376,6 @@ export default function Chat() {
           {/* Message Input */}
           <Box sx={{ p: 2, bgcolor: "white", borderTop: "1px solid #e0e0e0" }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <IconButton>
-                <AttachFileIcon />
-              </IconButton>
-              <IconButton>
-                <EmojiIcon />
-              </IconButton>
               <TextField
                 fullWidth
                 placeholder="Type a Message"
