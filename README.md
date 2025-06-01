@@ -45,7 +45,7 @@ npm i -D eslint-config-prettier
 
 # View Interface
 
-![Pic1](./assets/chatview.png)  
+![Pic1](./src/assets/chatview.png)  
 
 # Overview of what I will implement
 
