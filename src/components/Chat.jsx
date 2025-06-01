@@ -30,6 +30,8 @@ import {
   Send as SendIcon,
 } from '@mui/icons-material';
 
+import PersonIcon from '@mui/icons-material/Person';
+
 // Context
 import { DataContext } from '../context/DataProvider';
 
@@ -38,7 +40,7 @@ const contacts = [
     id: 1,
     name: 'Alene',
     role: 'Technical Department',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '2h ago',
     unreadCount: 2,
     isOnline: true,
@@ -48,7 +50,7 @@ const contacts = [
     id: 2,
     name: 'Keefe',
     role: 'Support Executive',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '1:20 AM',
     unreadCount: 2,
     isOnline: true,
@@ -57,7 +59,7 @@ const contacts = [
     id: 3,
     name: 'Lazaro',
     role: 'Resource Investigator',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: 'Yesterday',
     unreadCount: 1,
     isOnline: true,
@@ -66,7 +68,7 @@ const contacts = [
     id: 4,
     name: 'Hazle',
     role: 'Teamworker',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '4/25/2021',
     unreadCount: 0,
   },
@@ -74,7 +76,7 @@ const contacts = [
     id: 5,
     name: 'Herman Essertg',
     role: 'Co-ordinator',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '4/25/2021',
     unreadCount: 0,
   },
@@ -82,7 +84,7 @@ const contacts = [
     id: 6,
     name: 'Wilhelmine Durrg',
     role: 'Monitor Evaluator',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '4/25/2021',
     unreadCount: 0,
   },
@@ -90,7 +92,7 @@ const contacts = [
     id: 7,
     name: 'Agillulf Fuxg',
     role: 'Specialist',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '4/25/2021',
     unreadCount: 0,
   },
@@ -98,7 +100,7 @@ const contacts = [
     id: 8,
     name: 'Herman Essertg',
     role: 'Co-ordinator',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '4/25/2021',
     unreadCount: 0,
   },
@@ -106,7 +108,7 @@ const contacts = [
     id: 9,
     name: 'Wilhelmine Durrg',
     role: 'Monitor Evaluator',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '4/25/2021',
     unreadCount: 0,
   },
@@ -114,7 +116,7 @@ const contacts = [
     id: 10,
     name: 'Agillulf Fuxg',
     role: 'Specialist',
-    avatar: '/placeholder.svg?height=40&width=40',
+    avatar: '',
     lastSeen: '4/25/2021',
     unreadCount: 0,
   },
@@ -217,6 +219,12 @@ export default function Chat() {
     }
   };
 
+  const getAvatarContent = (avatar) => (
+    <Avatar src={avatar || undefined} sx={{ width: 40, height: 40 }}>
+      {!avatar && <PersonIcon fontSize="small" />}
+    </Avatar>
+  );
+
   return (
     <>
       <Box sx={{ display: 'flex', height: '100vh', bgcolor: '#f5f5f5' }}>
@@ -281,31 +289,26 @@ export default function Chat() {
                       ) : null
                     }
                   >
-                    <Avatar
-                      src={contact.avatar}
-                      sx={{ width: 40, height: 40 }}
-                    />
+                    {getAvatarContent(contact.avatar)}
                   </Badge>
                 </ListItemAvatar>
                 <ListItemText
                   primary={
-                    <Box
+                    <Typography
+                      component="div"
                       sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
                       }}
                     >
-                      <Typography variant="subtitle2" sx={{ fontWeight: 500 }}>
-                        {contact.name}
-                      </Typography>
-                      <Typography variant="caption" color="text.secondary">
-                        {contact.lastSeen}
-                      </Typography>
-                    </Box>
+                      <span>{contact.name}</span>
+                      <span style={{ fontSize: 12, color: '#757575' }}>{contact.lastSeen}</span>
+                    </Typography>
                   }
                   secondary={
-                    <Box
+                    <Typography
+                      component="div"
                       sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -313,9 +316,7 @@ export default function Chat() {
                         mt: 0.5,
                       }}
                     >
-                      <Typography variant="body2" color="text.secondary">
-                        {contact.role}
-                      </Typography>
+                      <span>{contact.role}</span>
                       {contact.unreadCount > 0 && (
                         <Chip
                           label={contact.unreadCount}
@@ -329,9 +330,10 @@ export default function Chat() {
                           }}
                         />
                       )}
-                    </Box>
+                    </Typography>
                   }
                 />
+
               </ListItem>
             ))}
           </List>
