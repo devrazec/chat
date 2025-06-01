@@ -26,3 +26,7 @@ npm i -S react-router-dom
 npm i -D gh-pages
 
 npm i -D copyfiles
+
+npm i -D prettier
+
+npm i -D eslint-config-prettier
