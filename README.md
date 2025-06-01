@@ -1,14 +1,15 @@
 # Project React Chat
 
-I created this team chat/messaging interface using Material UI v7 in JSX format. The interface shows a conversation between team members with a contact list on the left and chat messages on the right.
+It's a chat/messaging interface using Material UI v7 in JSX format. The interface shows a conversation between team members with a contact list on the left and chat messages on the right.
 
 # Setup
 
+-- AceBase (to persist messages) in a docker container hosted on Google Cloud
+
 -- Socket.IO (for real-time send/receive)
 
--- AceBase (to persist messages)
-
 -- React as client interface
+
 
 # Create Vite Project
 
@@ -47,7 +48,7 @@ npm i -D eslint-config-prettier
 
 ![Pic1](./src/assets/chatview.png)  
 
-# Overview of what I will implement
+# Overview of the implementation
 
 -- User Login Route: Validate email/password, generate JWT.
 
