@@ -249,7 +249,7 @@ export default function Chat() {
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <div style={{ width: 40, height: 40 }}></div>
                 <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
-                  React Chat + AceBase
+                  React Chat
                 </Typography>
               </Box>
             </Box>
