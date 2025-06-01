@@ -48,6 +48,11 @@ npm i -D eslint-config-prettier
 
 ![Pic1](./src/assets/chatview.png)  
 
+| Description | Link |
+|-------------|------|
+| Online view | https://devrazec.github.io/chat/ |
+
+
 # Overview of the implementation
 
 -- User Login Route: Validate email/password, generate JWT.
