@@ -4,7 +4,7 @@ import Chat from '../components/Chat';
 export function Home() {
   return (
     <>
-        <Chat />
+      <Chat />
     </>
   );
 }

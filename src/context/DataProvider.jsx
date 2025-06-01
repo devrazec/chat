@@ -15,8 +15,8 @@ const DataProvider = (props) => {
         setDarkMode,
 
         // Users
-        dbUsers, setDbUsers,
-
+        dbUsers,
+        setDbUsers,
       }}
     >
       {props.children}

@@ -18,7 +18,6 @@ import { Login } from './pages/Login';
 import { DataContext } from './context/DataProvider';
 
 function App() {
-
   const { darkMode, setDarkMode } = useContext(DataContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -53,7 +52,6 @@ function App() {
         <CssBaseline />
 
         <div>
-
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path="/chat" element={<Home />} />
@@ -62,9 +60,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
-
         </div>
-
       </ThemeProvider>
     </>
   );
