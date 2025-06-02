@@ -1,6 +1,7 @@
 # Ignore artifacts:
 node_modules/
 dist/
+certs/
 pubic/
 eslint.config.js
 vite.config.js
