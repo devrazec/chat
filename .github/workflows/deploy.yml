@@ -31,8 +31,6 @@ jobs:
     
     - name: Install Dependencies
     - run: npm ci
-    - run: git config --global user.email "devrazec@gmail.com"
-    - run: git config --global user.name "devrazec"
     
     - name: Build
     - run: npm run prettierfix    
