@@ -34,8 +34,8 @@ jobs:
         run: npm run predeploy
 
       - name: Deploy to GitHub Pages
-        if: ${{ matrix.node-version == '20.x' }}  # Only deploy once
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
+        if: ${{ matrix.node-version == '20.x' }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
