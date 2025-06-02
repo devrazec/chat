@@ -44,6 +44,13 @@ npm i -D prettier
 
 npm i -D eslint-config-prettier
 
+# CI and DC
+
+- run: npm ci
+- run: npm run prettierfix    
+- run: npm run predeploy
+- run: npm run deploy
+
 # View Interface
 
 ![Pic1](./src/assets/chatview.png)  
@@ -51,7 +58,6 @@ npm i -D eslint-config-prettier
 | Description | Link |
 |-------------|------|
 | Online view | https://devrazec.github.io/chat/ |
-
 
 # Overview of the implementation
 

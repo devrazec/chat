@@ -9,6 +9,8 @@ import './App.css';
 
 // Pages
 import { Home } from './pages/Home';
+import { Home2 } from './pages/Home2';
+import { Home3 } from './pages/Home3';
 import { NotFound } from './pages/NotFound';
 import { Login } from './pages/Login';
 
@@ -55,6 +57,8 @@ function App() {
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
               <Route path="/chat" element={<Home />} />
+              <Route path="/chat2" element={<Home2 />} />
+              <Route path="/chat3" element={<Home3 />} />
               <Route path="/login" element={<Login />} />
               <Route path="/notfound" element={<NotFound />} />
               <Route path="*" element={<NotFound />} />
