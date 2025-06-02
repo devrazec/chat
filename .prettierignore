@@ -1,7 +1,0 @@
-# Ignore artifacts:
-node_modules/
-dist/
-pubic/
-eslint.config.js
-vite.config.js
-README.md
