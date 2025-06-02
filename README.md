@@ -34,6 +34,8 @@ npm i -S axios socket.io-client
 
 npm i -S react-router-dom
 
+npm i -S sql.js
+
 # Install Dev Packages
 
 npm i -D gh-pages

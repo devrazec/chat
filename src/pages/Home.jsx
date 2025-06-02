@@ -6,7 +6,7 @@ import Chat3 from '../components/Chat3';
 export function Home() {
   return (
     <>
-      <Chat2 />
+      <Chat />
     </>
   );
 }

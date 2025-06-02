@@ -1,5 +1,6 @@
 import React, { useEffect, Suspense, useContext, useState } from 'react';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
+import initSqlJs from 'sql.js';
 
 import {
   Box,
@@ -35,7 +36,7 @@ import PersonIcon from '@mui/icons-material/Person';
 // Context
 import { DataContext } from '../context/DataProvider';
 
-const contacts = [
+const users = [
   {
     id: 1,
     name: 'Alene',
@@ -125,72 +126,84 @@ const contacts = [
 const messages = [
   {
     id: 1,
+    user_id: 1,
     text: 'Hi Good Morning!',
-    time: '11:23 AM',
+    datetime: '11:23 AM',
     isSent: true,
   },
   {
     id: 2,
+    user_id: 1,
     text: 'Hey. Very Good morning. How are you?',
     time: '11:23 AM',
     isSent: false,
   },
   {
     id: 3,
+    user_id: 1,
     text: 'Good. Thank you',
     time: '11:23 AM',
     isSent: true,
   },
   {
     id: 4,
+    user_id: 1,
     text: 'I need your minute, are you available?',
     time: '11:23 AM',
     isSent: false,
   },
   {
     id: 5,
+    user_id: 1,
     text: 'Hi Good Morning!',
     time: '11:23 AM',
     isSent: true,
   },
   {
     id: 6,
+    user_id: 1,
     text: 'Hey. Very Good morning. How are you?',
     time: '11:23 AM',
     isSent: false,
   },
   {
     id: 7,
+    user_id: 1,
     text: 'Good. Thank you',
     time: '11:23 AM',
     isSent: true,
   },
   {
     id: 8,
+    user_id: 1,
     text: 'I need your minute, are you available?',
     time: '11:23 AM',
     isSent: false,
   },
   {
     id: 9,
+    user_id: 1,
     text: 'Hi Good Morning!',
     time: '11:23 AM',
     isSent: true,
   },
   {
     id: 10,
+    user_id: 1,
     text: 'Hey. Very Good morning. How are you?',
     time: '11:23 AM',
     isSent: false,
   },
   {
     id: 11,
+    user_id: 1,
     text: 'Good. Thank you',
     time: '11:23 AM',
     isSent: true,
   },
   {
     id: 12,
+    user_id: 1,
     text: 'I need your minute, are you available?',
     time: '11:23 AM',
     isSent: false,
@@ -202,8 +215,40 @@ export default function Chat() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [selectedContact, setSelectedContact] = useState(contacts[0]);
+  const [selectedContact, setSelectedContact] = useState(users[0]);
   const [messageText, setMessageText] = useState('');
+
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+
+      const SQL = await initSqlJs({ locateFile: file => `https://sql.js.org/dist/${file}` });
+      const db = new SQL.Database();
+
+      db.run(`
+        CREATE TABLE users (
+          id INTEGER PRIMARY KEY,
+          name TEXT,
+          role TEXT,
+          avatar TEXT,
+          lastSeen TEXT,
+          unreadCount INTEGER
+        );
+      `);
+
+      db.run(`
+        INSERT INTO users (id, name, role, avatar, lastSeen, unreadCount)
+        VALUES (10, 'Agillulf Fuxg', 'Specialist', '', '25/4/2025', 0);
+      `);
+
+      const result = db.exec("SELECT * FROM users");
+      if (result.length > 0) {
+        const values = result[0].values;
+        setRows(values);
+      }
+    })();
+  }, []);
 
   const handleSendMessage = () => {
     if (messageText.trim()) {
@@ -255,9 +300,9 @@ export default function Chat() {
             </Box>
           </Box>
 
-          {/* Contacts List */}
+          {/* User List */}
           <List sx={{ px: 1 }}>
-            {contacts.map((contact) => (
+            {users.map((contact) => (
               <ListItem
                 key={contact.id}
                 onClick={() => setSelectedContact(contact)}
