@@ -38,4 +38,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          npx gh-pages -d dist -u 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
+          npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
