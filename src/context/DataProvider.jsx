@@ -6,7 +6,11 @@ const DataProvider = (props) => {
   const [darkMode, setDarkMode] = useState(false);
 
   // Users
-  const [dbUsers, setDbUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState([]);
+
+  const [allMessages, setAllMessages] = useState([]);
+  const [selectedMessage, setSelectedMessage] = useState([]);
 
   return (
     <DataContext.Provider
@@ -14,9 +18,12 @@ const DataProvider = (props) => {
         darkMode,
         setDarkMode,
 
-        // Users
-        dbUsers,
-        setDbUsers,
+        allUsers, setAllUsers,
+        selectedUser, setSelectedUser,
+
+        allMessages, setAllMessages,
+        selectedMessage, setSelectedMessage,
+
       }}
     >
       {props.children}
